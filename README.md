@@ -1,6 +1,11 @@
 # lift-mods
 
-This is a basic set of files to change a LIFT file output from FieldWorks Language Explorer. It allows you to reorder the gloss languages so you choose which language show with the vernacular in Dictionary App Builder. The script can also add one or two language tabs for semantic domain words and numbers.
+## Modify LIFT files before loading in Dictionary App Builder
+
+This is a basic set of files run by a patch file to change a LIFT file output from FieldWorks Language Explorer. 
+
+* It allows you to reorder the gloss languages so you choose which language show with the vernacular in Dictionary App Builder. 
+* The script can also add one or two language tabs for semantic domain words and numbers.
 
     1. Download the zip file.
     2. Unzip the file and put all files in one folder
