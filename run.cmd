@@ -3,6 +3,7 @@ set saxon9=saxon9he.jar
 set projxslt=project.xslt
 set var2x=variable2xslt.xslt
 call :variableslist project.txt
+if not exist "%ProgramFiles%\java" echo is java installed? & pause & exit
 if exist "%projxslt%" del "%projxslt%"
 @echo on
 java -jar "%saxon9%" -o:"%projxslt%" "%var2x%" "%var2x%"
