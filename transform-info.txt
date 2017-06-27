@@ -1,0 +1,11 @@
+Transformation Information.
+
+This transformation takes a Fieldworks Language Explorer exported LIFT file and 
+adds two features.
+
+1. It allows ordering of gloss entries so you can choose the language to appear 
+as the second language underneath the gloss.
+
+2. It adds some fields to output semantic information. You can choose the label 
+word for the semantic entry. You can add a lanuage like tab for semantic words 
+and or semantic numbers.

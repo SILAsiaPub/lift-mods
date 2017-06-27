@@ -1,10 +1,11 @@
-[trans1]
-semantic=on
-shownsemumbertab=on
-shownsemumberentry=on
-classification=
-langorder_list=id en
-beforesemnumb=no.
+[Modify Flex LIFT for DAB]
+langOrder_list=id en
+showSemanticEntry=on
+showSemanticNumberInEntry=on
+classification=grouping
+showSemanticWordTab=on
+showSemanticNumberTab=on
+beforeSemanticNumb=no.
 infile=filename.lift
 outfile=filename-mod.lift
 script=LIFT-reorder-gloss-by-lang-add-semantic-domain-number.xslt
