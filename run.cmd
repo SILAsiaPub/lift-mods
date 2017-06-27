@@ -3,10 +3,13 @@ set saxon9=saxon9he.jar
 set projxslt=project.xslt
 set var2x=variable2xslt.xslt
 call :variableslist project.txt
+if exist "%projxslt%" del "%projxslt%"
 @echo on
 java -jar "%saxon9%" -o:"%projxslt%" "%var2x%" "%var2x%"
+@if not exist "%projxslt%" pause
+@if exist "%outfile%" del "%outfile%"
 java -jar "%saxon9%" -o:"%outfile%" "%infile%" "%script%"
-pause
+@if not exist "%outfile%" pause
 goto :eof
 
 :variableslist
