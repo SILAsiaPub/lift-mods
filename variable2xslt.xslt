@@ -58,10 +58,12 @@
                   </xsl:element>
                   <xsl:for-each select="$projecttask">
                         <!-- copy the root folder files pub.cmd and local_var.cmd -->
-                        <xsl:call-template name="parseline">
-                              <xsl:with-param name="line" select="."/>
-                              <xsl:with-param name="curpos" select="position()"/>
-                        </xsl:call-template>
+                        <xsl:if test="matches(.,'=')">
+                              <xsl:call-template name="parseline">
+                                    <xsl:with-param name="line" select="."/>
+                                    <xsl:with-param name="curpos" select="position()"/>
+                              </xsl:call-template>
+                        </xsl:if>
                   </xsl:for-each>
             </xsl:element>
       </xsl:template>
@@ -70,13 +72,15 @@
             <xsl:param name="curpos"/>
             <xsl:variable name="part" select="tokenize($line,'=')"/>
             <xsl:choose>
-                  <xsl:when test="matches($part[1],'^#.*$')">
+                  <xsl:when test="matches($part[1],'^\[.*$')">
                         <xsl:element name="xsl:variable">
                               <xsl:attribute name="name">
                                     <xsl:value-of select="concat('comment',$curpos)"/>
                               </xsl:attribute>
                               <xsl:attribute name="select">
+                                    <xsl:text>'</xsl:text>
                                     <xsl:value-of select="$line"/>
+                                    <xsl:text>'</xsl:text>
                               </xsl:attribute>
                         </xsl:element>
                   </xsl:when>
@@ -85,7 +89,11 @@
                               <xsl:attribute name="name">
                                     <xsl:value-of select="$part[1]"/>
                               </xsl:attribute>
-                              <xsl:value-of select="$part[2]"/>
+                              <xsl:attribute name="select">
+                                    <xsl:text>'</xsl:text>
+                                    <xsl:value-of select="$part[2]"/>
+                                    <xsl:text>'</xsl:text>
+                              </xsl:attribute>
                         </xsl:element>
                         <xsl:if test="matches($part[1],'_list$')">
                               <xsl:variable name="newname" select="replace($part[1],'_list','')"/>
