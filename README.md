@@ -23,4 +23,5 @@ This is a basic set of files run by a patch file to change a LIFT file output fr
     10. Click the Run transformation button.
 
 If at a later stage you want to remake with no number tab just change showSemanticNumberTab=on  to showSemanticNumberTab=off
+
 The other on switches can be turned off to turn off other features.
