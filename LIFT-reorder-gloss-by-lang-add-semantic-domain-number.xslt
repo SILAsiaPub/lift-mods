@@ -24,7 +24,7 @@
             <xsl:variable name="cursense" select="."/>
             <xsl:copy>
                   <xsl:apply-templates select="@*"/>
-                  <xsl:for-each select="$langorder">
+                  <xsl:for-each select="$langOrder">
                         <xsl:variable name="langcode" select="."/>
                         <xsl:apply-templates select="$cursense/gloss[@lang=$langcode]"/>
                   </xsl:for-each>
@@ -32,13 +32,13 @@
             </xsl:copy>
       </xsl:template>
       <xsl:template match="trait[@name = 'semantic-domain-ddp4']">
-            <xsl:if test="$semantic = 'on'">
+            <xsl:if test="$showSemanticEntry = 'on'">
                   <xsl:variable name="value" select="replace(@value,'^[\d\.]+ ','')"/>
                   <xsl:variable name="sdnumb" select="substring-before(@value,' ')"/>
                   <note type="{$classification}">
                         <form lang="sdm">
                               <xsl:element name="text">
-                                    <xsl:if test="$shownsemumberentry">
+                                    <xsl:if test="$showSemanticNumberInEntry">
                                           <xsl:value-of select="normalize-space(@sdnumb)"/>
                                           <xsl:text> </xsl:text>
                                     </xsl:if>
@@ -54,11 +54,11 @@
                               </xsl:element>
                         </form>
                   </reversal>
-                  <xsl:if test="$shownsemumbertab = $true">
+                  <xsl:if test="$showSemanticNumberTab = $true">
                         <reversal type="sdn">
                               <form lang="sdn">
                                     <xsl:element name="text">
-                                          <xsl:value-of select="concat($beforesemnumb,' ',$sdnumb)"/>
+                                          <xsl:value-of select="concat($beforeSemanticNumb,' ',$sdnumb)"/>
                                           <!-- <xsl:value-of select="@value"/> -->
                                     </xsl:element>
                               </form>
