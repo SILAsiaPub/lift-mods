@@ -4,7 +4,7 @@
 
 This is a basic set of files run by a patch file to change a LIFT file output from FieldWorks Language Explorer. 
 
-* It allows you to reorder the gloss languages so you choose which language show with the vernacular in Dictionary App Builder. 
+* It allows you to reorder the gloss languages so you choose which language show with the vernacular in Dictionary App Builder. (This is not needed as DAB can reorder by drag and drop.)
 * The script can also add one or two language tabs for semantic domain words and numbers.
 
 ## Installation
